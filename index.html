@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Image Generator</h1>
+            <div class="user-info">
+                <div class="credits">
+                    <span id="credit-count">100</span> credits
+                </div>
+                <button id="buy-credits" class="btn btn-primary">Buy Credits</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="generator-panel">
+                <h2>Create Your Image</h2>
+                <div class="input-group">
+                    <label for="prompt">Describe what you want to see:</label>
+                    <textarea id="prompt" rows="4" placeholder="A serene lake surrounded by mountains at sunset..."></textarea>
+                </div>
+                
+                <div class="options">
+                    <div class="option-group">
+                        <label for="style">Style:</label>
+                        <select id="style">
+                            <option value="realistic">Realistic</option>
+                            <option value="cartoon">Cartoon</option>
+                            <option value="3d">3D Render</option>
+                            <option value="painting">Painting</option>
+                            <option value="sketch">Sketch</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label for="size">Size:</label>
+                        <select id="size">
+                            <option value="512x512">512x512</option>
+                            <option value="1024x1024">1024x1024</option>
+                            <option value="1024x512">1024x512</option>
+                            <option value="512x1024">512x1024</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="cost-info">
+                    <p>Cost: <span class="highlight">2 credits</span> per image</p>
+                </div>
+                
+                <button id="generate-btn" class="btn btn-generate">Generate Image</button>
+            </div>
+            
+            <div class="results-panel">
+                <h2>Your Generated Images</h2>
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Creating your masterpiece...</p>
+                </div>
+                <div id="image-results" class="image-results">
+                    <!-- Generated images will appear here -->
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal for buying credits -->
+    <div id="credits-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Buy More Credits</h2>
+            <div class="credit-packages">
+                <div class="package">
+                    <h3>100 Credits</h3>
+                    <p class="price">$15.00</p>
+                    <button class="btn btn-buy" data-amount="100">Buy Now</button>
+                </div>
+                <div class="package">
+                    <h3>300 Credits</h3>
+                    <p class="price">$40.00</p>
+                    <p class="savings">Save $5</p>
+                    <button class="btn btn-buy" data-amount="300">Buy Now</button>
+                </div>
+                <div class="package popular">
+                    <div class="popular-tag">Best Value</div>
+                    <h3>500 Credits</h3>
+                    <p class="price">$60.00</p>
+                    <p class="savings">Save $15</p>
+                    <button class="btn btn-buy" data-amount="500">Buy Now</button>
+                </div>
+            </div>
+            <div class="payment-info">
+                <p>Secure payment processing. All major credit cards accepted.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for payment confirmation -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Successful!</h2>
+            <p>Your credits have been added to your account.</p>
+            <button id="payment-ok" class="btn btn-primary">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
